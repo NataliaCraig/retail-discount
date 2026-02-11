@@ -60,3 +60,12 @@ for (const product of products) {
   console.log(`${product.name}: $${product.price.toFixed(2)}`);
 
 }
+
+if (customerType === "student") {extraDiscount = 0.05;}
+  
+  else if (customerType === "senior")
+  {extraDiscount = 0.07;}
+ else if (customerType === "veteran") {extraDiscount = 0.10;}
+   else if (customerType === "local") {extraDiscount = 0.08;}
+  else {
+  extraDiscount = 0;}
