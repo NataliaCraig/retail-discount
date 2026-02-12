@@ -69,3 +69,27 @@ if (customerType === "student") {extraDiscount = 0.05;}
    else if (customerType === "local") {extraDiscount = 0.08;}
   else {
   extraDiscount = 0;}
+  
+  //checkout process (3 customers)
+  for (let i = 1; i <= 3; i++) {
+    let total = 0;
+
+  console.log("Processing Customer " + i);
+   for (let product of products) {
+
+    if (product.inventory > 0) {
+
+      total += product.price;
+      product.inventory--;
+
+    }
+  }
+  total = total - (total * extraDiscount);
+
+  console.log("Customer " + i + " Total: $" + total.toFixed(2));
+}
+  
+// add for in
+console.log("\nStep 6: Logging one product using for...in");
+
+let singleProduct = products[0];
