@@ -31,8 +31,11 @@ const products = [
     inventory: 12
 }
 ];
-// apply dynamic discount 
-for (const product of products) {
+
+let customerType = "student";
+let extraDiscount = 0;
+
+for (const  product of products) {
 
   let discount = 0;
 
@@ -63,15 +66,16 @@ for (const product of products) {
 
 if (customerType === "student") {extraDiscount = 0.05;}
   
-  else if (customerType === "senior")
+  else if (customerType === "senior" )
   {extraDiscount = 0.07;}
  else if (customerType === "veteran") {extraDiscount = 0.10;}
-   else if (customerType === "local") {extraDiscount = 0.08;}
+     else if (customerType === "local") {extraDiscount = 0.08;}
   else {
   extraDiscount = 0;}
   
   //checkout process (3 customers)
-  for (let i = 1; i <= 3; i++) {
+  for (let i = 1; i <= 3; i++) 
+    {
     let total = 0;
 
   console.log("Processing Customer " + i);
@@ -79,17 +83,35 @@ if (customerType === "student") {extraDiscount = 0.05;}
 
     if (product.inventory > 0) {
 
-      total += product.price;
+         total += product.price;
       product.inventory--;
 
     }
   }
-  total = total - (total * extraDiscount);
+total = total - (total * extraDiscount);
 
   console.log("Customer " + i + " Total: $" + total.toFixed(2));
 }
   
 // add for in
-console.log("\nStep 6: Logging one product using for...in");
+console.log ("Logging single product details");
 
 let singleProduct = products[0];
+
+for (let key in singleProduct) 
+  {
+    console.log(`${key} ${singleProduct[key]}`);
+}
+// Object.entries() and destructuring
+
+console.log("Logging all products");
+
+for (let i = 0; i < products.length; i++) {
+  
+      for (let [key, value] of Object.entries(products[i]))
+   {
+        console.log(`${key} ${value}`);
+    }
+
+}
+
